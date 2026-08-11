@@ -1,434 +1,147 @@
-# AML Knowledge Assistant
+AML Knowledge Assistant
 
-## AI-Powered Assistant for Anti-Money Laundering Investigations
+AI-powered decision-support prototype for Anti-Money Laundering (AML) investigations, combining a supervised machine learning transaction classifier with a Retrieval-Augmented Generation (RAG) knowledge assistant.
 
----
+Deep Learning Final Project — 2026
 
-## 1. Overview
+1. Overview
 
-AML Knowledge Assistant is a Deep Learning project that explores how Transformer-based Language Models and Retrieval-Augmented Generation (RAG) can support Anti-Money Laundering (AML) investigations.
+This project explores how machine learning and Retrieval-Augmented Generation can support AML analysts in two complementary ways:
 
-The project aims to develop an AI-powered knowledge assistant that can help AML analysts understand AML concepts, analyze transaction scenarios, identify potential red flags, retrieve relevant regulatory information, assess risk, and generate structured investigation reports.
+Transaction risk detection — a supervised classifier that flags potentially suspicious transactions in a large, highly imbalanced dataset.
+AML knowledge retrieval — a RAG pipeline that retrieves relevant Belgian AML rules, legal references, and practical interpretations to support case analysis and reporting.
 
-The system is designed as a decision-support tool and does not replace human AML analysts or make final compliance decisions.
+The system is designed as a decision-support tool. It does not replace human AML analysts and does not make autonomous compliance decisions.
 
----
+2. Problem Statement
 
-## 2. Problem Statement
-
-Anti-Money Laundering investigations require analysts to review transaction activity, identify unusual patterns, consult regulatory and AML documentation, and prepare investigation reports.
-
-This process can be time-consuming and requires information from multiple sources.
-
-The main problem addressed by this project is:
-
-> Can a Transformer-based AI assistant combined with Retrieval-Augmented Generation (RAG) support AML analysts in analyzing transaction scenarios and retrieving relevant AML knowledge?
-
-The project focuses on applying Deep Learning, Transformers, Language Models, and RAG to a real-world financial crime investigation problem.
-
----
-
-## 3. Project Objectives
-
-The main objectives of the project are:
-
-- Develop an AI-powered AML knowledge assistant.
-- Explore the use of Transformer-based Language Models for AML-related tasks.
-- Implement a Retrieval-Augmented Generation (RAG) pipeline.
-- Build an AML knowledge base using relevant documentation.
-- Analyze transaction scenarios and identify potential AML red flags.
-- Provide a structured risk assessment.
-- Explain the reasons behind the identified risk indicators.
-- Recommend appropriate investigation actions.
-- Generate a draft Suspicious Activity Report (SAR).
-- Evaluate the performance of the implemented approach.
-- Compare different approaches and document the results.
-
----
-
-## 4. Main Features
-
-### 4.1 AML Knowledge Assistant
-
-The assistant can answer questions related to:
-
-- Anti-Money Laundering (AML)
-- Know Your Customer (KYC)
-- Enhanced Due Diligence (EDD)
-- Transaction Monitoring
-- Suspicious Activity
-- Structuring
-- Layering
-- Money Mule Activity
-- Risk Indicators
-- Customer Risk
-- Transaction Risk
-
-### 4.2 Transaction and Case Analysis
-
-The system can analyze AML transaction scenarios and identify potential risk indicators.
-
-Example:
-
-    Customer receives 25 incoming transactions.
-    Average transaction amount: €950
-    Number of senders: 8
-    Countries involved: 3
-    Time period: 48 hours
-
-The assistant can provide:
-
-- Risk Level
-- Potential Red Flags
-- Explanation
-- Recommended Investigation Actions
-
-### 4.3 Red Flag Identification
-
-The system investigates potential AML indicators such as:
-
-- Unusual transaction frequency
-- Multiple counterparties
-- Structuring patterns
-- Rapid movement of funds
-- Unusual transaction amounts
-- Geographic risk indicators
-- Transactions inconsistent with the expected customer profile
-- Unusual changes in customer behaviour
-
-### 4.4 Risk Assessment
-
-The assistant can classify an investigated case into a risk category:
-
-- LOW
-- MEDIUM
-- HIGH
-
-The risk assessment is supported by identified transaction characteristics and AML indicators.
-
-The final risk assessment is intended to support human investigation and does not represent an autonomous compliance decision.
-
-### 4.5 Retrieval-Augmented Generation (RAG)
-
-The project implements Retrieval-Augmented Generation to provide the Language Model with relevant information from an AML knowledge base.
-
-Instead of relying only on the model's internal knowledge, relevant documents are retrieved and supplied as context before generating an answer.
-
-The general workflow is:
-
-    User Question
-          ↓
-    Query Processing
-          ↓
-    Text Embedding
-          ↓
-    Vector Search
-          ↓
-    Relevant Documents
-          ↓
-    Retrieved Context
-          ↓
-    Language Model
-          ↓
-    Generated Answer
-
-### 4.6 SAR Generation
-
-The system can generate a structured draft of a Suspicious Activity Report (SAR) based on the information provided during an investigation.
-
-The generated report is intended as a draft for human review and is not automatically submitted to a regulatory authority.
-
----
-
-## 5. Methodology
-
-The project follows the following workflow:
-
-    Data Acquisition
-           ↓
-    Data Cleaning
-           ↓
-    Exploratory Data Analysis
-           ↓
-    Feature Engineering
-           ↓
-    Transformer / Language Model
-           ↓
-    Text Embeddings
-           ↓
-    Vector Database
-           ↓
-    RAG Pipeline
-           ↓
-    AML Case Analysis
-           ↓
-    Risk Assessment
-           ↓
-    SAR Generation
-           ↓
-    Testing and Evaluation
-           ↓
-    Results and Conclusions
-
----
-
-## 6. Data
-
-The project uses financial transaction data and AML-related textual information.
-
-The data preparation process includes:
-
-1. Data acquisition
-2. Data inspection
-3. Data cleaning
-4. Missing-value handling
-5. Data transformation
-6. Feature engineering
-7. AML case preparation
-8. Preparation of testing data
-
-Where appropriate, synthetic AML cases may also be generated for testing and evaluation.
-
-The final datasets and their sources will be documented in the Jupyter Notebook.
-
----
-
-## 7. Deep Learning Approach
-
-The project focuses on Deep Learning techniques related to Natural Language Processing and Language Models.
-
-The research includes:
-
-- Tokenization
-- Text embeddings
-- Transformer architectures
-- Attention mechanisms
-- Language Models
-- Retrieval-Augmented Generation
-- Vector similarity search
-
-Different approaches may be implemented and compared as part of the research.
-
----
-
-## 8. Research Questions
-
-The project investigates the following research questions:
-
-### RQ1
-
-Can Transformer-based Language Models assist with AML-related knowledge and investigation tasks?
-
-### RQ2
-
-Can Retrieval-Augmented Generation improve the relevance and reliability of AML-related answers?
-
-### RQ3
-
-Can an AI-based assistant identify potential AML red flags from transaction scenarios?
-
-### RQ4
-
-How does an LLM-based approach compare with alternative approaches?
-
-### RQ5
-
-Can the system provide useful explanations and investigation recommendations?
-
----
-
-## 9. Previous Research
-
-The project builds upon previous research in the following areas:
-
-- Deep Learning
-- Natural Language Processing
-- Transformer architectures
-- Large Language Models
-- Retrieval-Augmented Generation
-- Financial Crime Detection
-- Anti-Money Laundering
-
-Relevant academic papers, technical documentation, and AML sources will be referenced and discussed in the final Jupyter Notebook.
-
-The project will include comparisons between the implemented approach and relevant previous approaches where applicable.
-
----
-
-## 10. Evaluation
-
-The system will be evaluated using predefined AML test cases.
-
-Depending on the implemented models and classification tasks, the following metrics may be used:
-
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-
-The RAG component will also be evaluated based on the relevance of retrieved information and the quality of generated responses.
-
-The project will include comparisons between different approaches, including the use of an LLM without retrieval and an LLM combined with RAG.
-
-Final evaluation results will be added after the experiments are completed.
-
----
-
-## 11. Visualization
-
-The project will include visualizations to support the analysis and evaluation.
-
-Examples include:
-
-- Suspicious vs. non-suspicious transactions
-- Transaction amount distributions
-- Transaction frequency
-- Geographic distributions
-- Risk-level distributions
-- Red flag frequency
-- Confusion Matrix
-- Model performance comparison
-- Evaluation metrics
-
-All visualizations will be created and explained in the Jupyter Notebook.
-
----
-
-## 12. Project Structure
-
-    AML-Knowledge-Assistant/
-    │
-    ├── AML_Knowledge_Assistant_Final_Project.ipynb
-    ├── app.py
-    │
-    ├── data/
-    │   ├── raw/
-    │   └── processed/
-    │
-    ├── documents/
-    │   └── aml_knowledge/
-    │
-    ├── src/
-    │   ├── preprocessing.py
-    │   ├── embeddings.py
-    │   ├── rag.py
-    │   ├── aml_analyzer.py
-    │   └── report_generator.py
-    │
-    ├── figures/
-    │
-    ├── tests/
-    │
-    ├── requirements.txt
-    └── README.md
-
----
-
-## 13. Technologies
-
-The project is primarily developed using Python and Jupyter Notebook.
-
-Main technologies and libraries include:
-
-- Python
-- Jupyter Notebook
-- PyTorch
-- Hugging Face Transformers
-- Sentence Transformers
-- LangChain
-- FAISS
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Streamlit
-
-The final dependencies will be documented in `requirements.txt`.
-
----
-
-## 14. Testing
-
-Testing will be performed using predefined AML scenarios.
-
-The testing process will evaluate:
-
-- Risk classification
-- Red flag identification
-- Retrieval relevance
-- Generated answers
-- SAR generation
-- Overall system behaviour
-
-Where applicable, automated tests and quantitative evaluation metrics will be used.
-
-The final testing results will be documented in the Jupyter Notebook.
-
----
-
-## 15. Results
-
-The final results will present the outcomes of the experiments and evaluations performed during the project.
-
-The analysis will include:
-
-- Model performance
-- Risk classification performance
-- Red flag identification results
-- RAG retrieval performance
-- Comparison between different approaches
-- Examples of generated AML analyses
-
-All reported results will be based on the actual experiments conducted during the project.
-
----
-
-## 16. Limitations
-
-The AML Knowledge Assistant is an educational and research project.
-
-The system has several limitations:
-
-- It does not make final AML compliance decisions.
-- Generated responses may contain errors.
-- Risk assessments depend on the quality and completeness of the input data.
-- Synthetic data may not fully represent real-world financial activity.
-- The system should not replace professional AML investigation.
-- Regulatory requirements may vary between jurisdictions.
-- Human review remains essential.
-
----
-
-## 17. Future Improvements
-
-Possible future improvements include:
-
-- Fine-tuning a specialized AML Language Model
-- Integration with real-time transaction monitoring systems
-- Graph-based transaction analysis
-- Network analysis of related accounts
-- Improved explainability
-- Integration with additional regulatory sources
-- Multilingual AML analysis
-- Automated case prioritization
-- OCR and document analysis for KYC documentation
-- Integration with real banking investigation workflows
-
----
-
-## 18. Conclusion
-
-The AML Knowledge Assistant demonstrates how Deep Learning, Transformer-based Language Models, embeddings, and Retrieval-Augmented Generation can be applied to a real-world Anti-Money Laundering problem.
-
-The project combines financial transaction analysis with an AML knowledge base to support analysts in identifying potential risk indicators, retrieving relevant AML information, and generating structured investigation outputs.
-
-The final evaluation will determine how effectively the proposed approach can support AML-related tasks and whether the addition of RAG improves the quality and relevance of the generated responses.
-
-The system is designed as a decision-support tool, with human review remaining an essential part of the AML investigation process.
-
----
-
-Deep Learning Final Project
-
-2026
+AML investigations require analysts to review large volumes of transaction activity, identify unusual patterns, consult regulatory documentation, and prepare investigation reports — a process that is time-consuming and draws on multiple information sources.
+
+This project investigates:
+
+Can a machine learning classifier combined with a Retrieval-Augmented Generation knowledge assistant support AML analysts in prioritising suspicious transactions and retrieving relevant AML knowledge?
+
+3. Research Questions
+RQ1 — Can a supervised ML model reliably prioritise suspicious transactions in a realistically imbalanced, time-based evaluation setting?
+RQ2 — Does Retrieval-Augmented Generation improve the grounding and relevance of AML-related answers compared with a generic response?
+RQ3 — Can a rule-based case analyzer identify meaningful AML red flags and risk levels from transaction scenarios?
+RQ4 — How do different classification thresholds and review-capacity levels affect the practical usefulness of the model for an AML investigation team?
+RQ5 — Can the system generate a structured, useful Suspicious Activity Report (SAR) draft from an assessed case?
+4. What the System Actually Does
+4.1 Transaction Classification (Machine Learning)
+
+Three supervised models — Logistic Regression, Decision Tree, and Random Forest — are trained to classify transactions as laundering / non-laundering on the IBM HI-Large synthetic AML transaction dataset.
+
+Random Forest was selected as the final model based on the best overall balance of Precision, F1-score, ROC-AUC, and PR-AUC on the validation set.
+
+Final test-set performance (Random Forest):
+
+Metric	Value
+Precision	2.01%
+Recall	72.07%
+F1-score	3.92%
+ROC-AUC	94.77%
+PR-AUC	3.88%
+
+Confusion matrix (test set): TN 237,082 · FP 12,560 · FN 100 · TP 258.
+
+Given the extreme class imbalance (~1.6% positive class), the low Precision is expected and is discussed explicitly in the notebook rather than hidden behind ROC-AUC alone.
+
+4.2 AML Knowledge Base + RAG Retrieval
+
+A Belgian AML knowledge base (10 curated entries covering AML/CFT legislation, risk-based approach, customer due diligence, transaction monitoring, AMLCO escalation, etc.) is embedded with a Sentence Transformer model (384-dimensional embeddings) and indexed with FAISS for semantic search.
+
+Given a question, the system retrieves the top-k most relevant knowledge base entries (topic, rule text, legal reference, source, practical interpretation).
+
+This is a retrieval system, not a generative one. The assistant returns retrieved AML knowledge directly — it does not currently pass that context to a generative language model to produce a free-form answer. This is stated explicitly as a limitation (see §7).
+
+4.3 AML Case Analyzer
+
+Given a transaction scenario (amount received, number of senders, rapid outgoing transfer, profile mismatch), the analyzer:
+
+Checks four rule-based red flags (high-value transaction ≥ €50,000, ≥3 unrelated senders, rapid outgoing movement, profile inconsistency).
+Computes a risk score and assigns a risk level (LOW / MEDIUM / HIGH).
+Retrieves relevant Belgian AML knowledge for the scenario.
+Prints recommended investigation actions based on the risk level.
+4.4 SAR Draft Generator
+
+Produces a structured Suspicious Activity Report draft (case summary, risk assessment, indicators, relevant AML knowledge, recommended next steps, analyst conclusion) from the same case inputs. The output is explicitly labelled as a draft for AML analyst / AMLCO review, not an auto-submitted report.
+
+4.5 Baseline vs RAG Comparison
+
+A generic predefined response is compared against the RAG-based retrieval on three evaluation questions, measuring legal grounding and topic coverage. The RAG approach achieved 100% legal grounding and 100% topic coverage on this small evaluation set.
+
+Note: the "baseline" here is a static predefined sentence, not an independent generative LLM run without retrieval. This comparison illustrates the value of grounding in a knowledge base, but is not a full LLM-vs-LLM+RAG benchmark (see Limitations).
+
+5. Methodology
+Data Acquisition (IBM HI-Large, 190M+ transactions, chunked reading)
+        ↓
+Data Cleaning & Validation
+        ↓
+Exploratory Data Analysis
+        ↓
+Time-Based Train / Validation / Test Split
+  (Aug 2022 → Sep 2022 → Oct 2022, proportional sampling)
+        ↓
+Feature Engineering (time features, same-bank, cross-bank, currency match)
+        ↓
+Preprocessing (StandardScaler + One-Hot Encoding)
+        ↓
+Model Training (Logistic Regression, Decision Tree, Random Forest)
+        ↓
+Threshold / Capacity / PR & ROC Evaluation
+        ↓
+Belgian AML Knowledge Base → Sentence Embeddings → FAISS Index
+        ↓
+RAG Retrieval → Case Analyzer → SAR Draft Generator
+        ↓
+End-to-End Testing
+Evaluation principles applied
+Original class distribution preserved — no artificial oversampling.
+Minority-class metrics (Precision, Recall, F1, PR-AUC) used instead of Accuracy as the primary measure.
+Time-based split, not random split — training on August 2022, validating on September, testing on October, to avoid look-ahead bias.
+Categorical variables (currency, payment format) encoded with One-Hot Encoding, not ordinal, to avoid implying a false order.
+Classification threshold and AML review-capacity trade-offs analysed explicitly (top-100 to top-10,000 review scenarios).
+6. Data
+IBM HI-Large Transactions — large-scale synthetic AML transaction dataset (~190M rows), read in chunks; ~1.6% of transactions labelled as laundering.
+Belgian AML Knowledge Base — 10 manually curated entries based on NBB, CTIF-CFI, and EBA guidance (see References).
+7. Limitations
+Dataset is synthetic; results should not be read as evidence of real-world production performance.
+Precision is low (2%) at default thresholds — the model is a prioritisation tool, not an autonomous classifier; capacity/threshold analysis should guide deployment.
+The Belgian AML knowledge base is small (10 entries) — not a production-scale legal corpus.
+RAG evaluation used only 3 predefined questions — too small to generalise.
+No generative LLM is used. The "baseline vs RAG" comparison uses a static predefined sentence as baseline, not an independent LLM run. This is a known gap between the original project brief (Transformer LM + RAG) and the current implementation, which is retrieval-only.
+Account-level leakage between train/validation/test splits (same account/bank appearing across periods) has not yet been explicitly checked.
+No probability calibration analysis has been performed.
+Not evaluated in a live banking environment; no data security, governance, or monitoring considerations addressed.
+8. Future Work
+Add a genuine generative model (e.g. a small open-weight LLM) on top of the retrieved context to produce free-form generated answers, and re-run baseline-vs-RAG with that model both with and without retrieval.
+Expand red-flag rules to cover unusual frequency, structuring patterns, geographic risk, and behavioural change over time.
+Add explicit account-level leakage checks and account-level evaluation.
+Add probability calibration analysis.
+Expand the Belgian AML knowledge base and the RAG evaluation set.
+Add qualitative false positive / false negative case review.
+9. Technologies Used
+
+Python, Jupyter Notebook, pandas, NumPy, scikit-learn, matplotlib, sentence-transformers, FAISS (faiss-cpu).
+
+10. How to Run
+Open AML_Knowledge_Assistant.ipynb in Jupyter.
+Install dependencies: pip install pandas numpy scikit-learn matplotlib sentence-transformers faiss-cpu.
+Update the dataset path to point to the local copy of the IBM HI-Large transactions CSV.
+Run all cells in order — data loading and sampling of the full dataset can take several minutes due to file size.
+11. References
+National Bank of Belgium (NBB). Anti-Money Laundering Law of 18 September 2017.
+National Bank of Belgium (NBB). Anti-Money Laundering Regulation of the NBB of 21 November 2017.
+National Bank of Belgium (NBB). AML/CFT – Definitions.
+National Bank of Belgium (NBB). Main Reference Documents – Combating Money Laundering and Financing of Terrorism.
+Financial Intelligence Processing Unit (CTIF-CFI). Obligations of Reporting Entities.
+European Banking Authority (EBA). Guidelines on Risk-Based Supervision.
+European Banking Authority (EBA). Guidelines on ML/TF Risk Factors.
+IBM. IBM Transactions for Anti-Money Laundering (HI-Large).
+SAML-D. Synthetic Anti-Money Laundering Dataset.
+Reimers, N. & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. EMNLP 2019.
+Johnson, J., Douze, M., & Jégou, H. (2017). Billion-scale similarity search with GPUs. IEEE Transactions on Big Data.
+Disclaimer
+
+This is an educational research prototype. It does not make AML compliance decisions, does not replace professional AML investigation, and any generated SAR draft requires
