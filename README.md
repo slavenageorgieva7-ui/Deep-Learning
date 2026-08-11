@@ -47,6 +47,10 @@ Confusion matrix (test set): TN 237,082 · FP 12,560 · FN 100 · TP 258.
 
 Given the extreme class imbalance (~1.6% positive class), the low Precision is expected and is discussed explicitly in the notebook rather than hidden behind ROC-AUC alone.
 
+Representative false positives and false negatives from the test set are extracted and displayed (account, amounts, payment format) to support qualitative error analysis alongside the aggregate metrics.
+
+Account-level leakage check: the training set contained 285,268 unique accounts and the test set 170,641, with 94,641 accounts appearing in both periods. This overlap is expected under a time-based split (the same account can transact in both August and October) and is discussed as a methodological limitation — an account-disjoint split is proposed as future work to isolate its effect on reported performance.
+
 4.2 AML Knowledge Base + RAG Retrieval
 
 A Belgian AML knowledge base (10 curated entries covering AML/CFT legislation, risk-based approach, customer due diligence, transaction monitoring, AMLCO escalation, etc.) is embedded with a Sentence Transformer model (384-dimensional embeddings) and indexed with FAISS for semantic search.
@@ -111,16 +115,15 @@ Precision is low (2%) at default thresholds — the model is a prioritisation to
 The Belgian AML knowledge base is small (10 entries) — not a production-scale legal corpus.
 RAG evaluation used only 3 predefined questions — too small to generalise.
 No generative LLM is used. The "baseline vs RAG" comparison uses a static predefined sentence as baseline, not an independent LLM run. This is a known gap between the original project brief (Transformer LM + RAG) and the current implementation, which is retrieval-only.
-Account-level leakage between train/validation/test splits (same account/bank appearing across periods) has not yet been explicitly checked.
+An account-level leakage check found meaningful overlap between train and test accounts (94,641 shared accounts) — an expected consequence of the time-based split, but a real limitation on how independently the test performance can be interpreted.
 No probability calibration analysis has been performed.
 Not evaluated in a live banking environment; no data security, governance, or monitoring considerations addressed.
 8. Future Work
 Add a genuine generative model (e.g. a small open-weight LLM) on top of the retrieved context to produce free-form generated answers, and re-run baseline-vs-RAG with that model both with and without retrieval.
 Expand red-flag rules to cover unusual frequency, structuring patterns, geographic risk, and behavioural change over time.
-Add explicit account-level leakage checks and account-level evaluation.
+Evaluate an account-disjoint split to measure how much the observed account-level overlap affects reported performance.
 Add probability calibration analysis.
 Expand the Belgian AML knowledge base and the RAG evaluation set.
-Add qualitative false positive / false negative case review.
 9. Technologies Used
 
 Python, Jupyter Notebook, pandas, NumPy, scikit-learn, matplotlib, sentence-transformers, FAISS (faiss-cpu).
